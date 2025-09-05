@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    color: #fff;
+    background: linear-gradient(-45deg, #4e54c8, #8f94fb, #6a11cb, #2575fc);
+    background-size: 400% 400%;
+    animation: gradientBG 60s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 0 0 20px 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+h1 {
+    text-align: center;
+    margin: 40px 0;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+blockquote {
+    position: relative;
+    background: rgba(0,0,0,0.5);
+    padding: 25px;
+    border-left: 8px solid #8f94fb;
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 700px;
+    font-size: 20px;
+    line-height: 1.6;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+blockquote:hover {
+    transform: translateY(-8px);
+}
+
+.views {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 16px;
+    color: #fff;
+    background: rgba(0,0,0,0.3);
+    padding: 4px 8px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+blockquote em {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    margin: 0;
+    text-align: right;
+    font-style: italic;
+    color: #ddd;
+}
+
+.quote-container {
+    max-width: 700px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    box-sizing: border-box;
+}
+
+.quote .quote-container blockquote,
+.quote-container > blockquote {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.vote-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 0;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+.vote-btn,
+#random-quote-btn {
+    cursor: pointer;
+    padding: 12px 20px;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    min-width: 100px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-sizing: border-box;
+}
+
+#random-quote-btn {
+    background: linear-gradient(45deg, #ff6a00, #ee0979);
+    min-width: 160px;
+    margin: 0 6px;
+}
+
+.like-count, .dislike-count {
+    font-weight: 700;
+    font-size: 14px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    min-width: 20px;
+}
+
+.like-btn.liked {
+    background: linear-gradient(135deg, #ffe600, #06ad00) !important;
+    box-shadow: 0 0 15px rgba(0, 255, 13, 0.6) !important;
+}
+.dislike-btn.disliked {
+    background: linear-gradient(135deg, #ff00f2, #ff0000) !important;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.753) !important;
+}
+
+@media (max-width: 520px) {
+    .vote-buttons {
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .vote-btn, #random-quote-btn {
+        min-width: 120px;
+        padding: 10px 14px;
+    }
+}
+
+.add-quote-form {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 700px;
+    margin: 30px auto;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+}
+
+.add-quote-form input,
+.add-quote-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    padding-left: 15px; 
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.add-quote-form input::placeholder,
+.add-quote-form textarea::placeholder {
+    color: #ddd;
+}
+
+.add-quote-form input:focus,
+.add-quote-form textarea:focus {
+    outline: none;
+    background: rgba(255,255,255,0.3);
+    box-shadow: 0 0 10px rgba(143,148,251,0.5);
+}
+
+.add-quote-form button {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    background: linear-gradient(45deg, #ff6a00, #ee0979);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.add-quote-form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+.pagination {
+    max-width: 700px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.pagination a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #fff;
+    background: rgba(0,0,0,0.3);
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.pagination a:hover {
+    background: rgba(255,255,255,0.2);
+}

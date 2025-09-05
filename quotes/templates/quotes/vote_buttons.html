@@ -1,0 +1,11 @@
+{% load dict_filters %}
+<div class="vote-buttons">
+          <button class="vote-btn like-btn {% if voted|get_item:quote.id == 1 %}liked{% endif %}" 
+                data-id="{{ quote.id }}" data-action="like">
+            👍 <span class="like-count">{{ quote.likes }}</span>
+        </button>
+        <button class="vote-btn dislike-btn {% if voted|get_item:quote.id == -1 %}disliked{% endif %}" 
+                data-id="{{ quote.id }}" data-action="dislike">
+            👎 <span class="dislike-count">{{ quote.dislikes }}</span>
+        </button>
+</div>

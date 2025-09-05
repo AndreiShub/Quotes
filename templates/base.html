@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>{% block title %}Цитаты{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Главная</a>
+        <a href="{% url 'top_quotes' %}">Топ 5</a>
+        <a href="{% url 'all_quotes' %}">Все цитаты</a>
+        <a href="{% url 'add_quote' %}">Добавить цитату</a>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+<script src="{% static 'js/quotes.js' %}" defer></script>
+</body>
+</html>

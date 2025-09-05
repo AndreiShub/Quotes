@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% load dict_filters %}
+
+{% block content %}
+<div class="quote">
+    {% if quote %}
+           <blockquote>
+            <p class="quote-text">{{quote.text}}</p>
+            <div class="quote-views">👁️ {{quote.views}}</div>
+            <em class="quote-source">{{quote.source}}</em>
+            </blockquote>
+                    <div class="quote-container">
+                        <div class="vote-buttons">
+                            <button class="vote-btn like-btn {% if voted|get_item:quote.id == 1 %}liked{% endif %}" 
+                                    data-id="{{ quote.id }}" data-action="like">
+                                👍 <span class="like-count">{{quote.likes}}</span>
+                            </button>
+                            <button id="random-quote-btn" data-url="{% url 'ajax_random_quote' %}">
+                                Хочу цитату
+                            </button>
+                            <button class="vote-btn dislike-btn {% if voted|get_item:quote.id == -1 %}disliked{% endif %}" 
+                                    data-id="{{quote.id}}" data-action="dislike">
+                                👎 <span class="dislike-count">{{quote.dislikes}}</span>
+                            </button>
+                        </div>
+                    </div>
+    {% else %}
+        <p>Цитат пока нет.</p>
+    {% endif %}
+</div>
+{% endblock %}

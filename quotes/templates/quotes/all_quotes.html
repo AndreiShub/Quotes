@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load dict_filters %}
+
+{% block content %}
+<h1>Все цитаты</h1>
+
+{% for quote in quotes %}
+<div class="quote-container">
+    <blockquote>
+        <p class="quote-text">{{ quote.text }}</p>
+        <div class="views">👁️ {{ quote.views }}</div>
+        <em class="quote-source">{{ quote.source }}</em>
+    </blockquote>
+
+{% include "quotes/vote_buttons.html" %}
+</div> 
+{% endfor %}
+
+<div class="pagination">
+  {% if quotes.has_previous %}
+    <a href="?page={{ quotes.previous_page_number }}">« Назад</a>
+  {% endif %}
+  <span>Страница {{ quotes.number }} из {{ quotes.paginator.num_pages }}</span>
+  {% if quotes.has_next %}
+    <a href="?page={{ quotes.next_page_number }}">Вперёд »</a>
+  {% endif %}
+</div>
+{% endblock %}

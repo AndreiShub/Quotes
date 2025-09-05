@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load dict_filters %}
+
+{% block content %}
+<h1>Топ 5 цитат</h1>
+
+{% for quote in quotes %}
+<div class="quote-container">
+    <blockquote>
+        <p class="quote-text">{{ quote.text }}</p>
+        <div class="views">👁️ {{ quote.views }}</div>
+        <em class="quote-source">{{ quote.source }}</em>
+    </blockquote>
+   {% include "quotes/vote_buttons.html" %}
+</div>
+{% endfor %}
+{% endblock %}

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    {% csrf_token %}
     <nav>
         <a href="{% url 'home' %}">Главная</a>
         <a href="{% url 'top_quotes' %}">Топ 5</a>
